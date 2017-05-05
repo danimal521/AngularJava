@@ -1,0 +1,26 @@
+﻿<table width="100%">
+    <tr>
+        <td><b>Bike Name</b></td>
+        <td><b>Price</b></td>
+        <td><b>Quantity</b></td>
+        <td><b>Total</b></td>
+        <td></td>
+    </tr>
+    <tr *ngFor="let bike of m_Model.Bikes">
+        <td><input [(ngModel)] = bike.Name /></td>
+        <td><input [(ngModel)]= bike.Price /></td>
+        <td> <input type="number" [(ngModel)] ="bike.Quantity" /></td>
+        <td>{{bike.Price * bike.Quantity | currency:'USD':true }}</td>
+        <td><button (click)="DeleteBike(bike)">Delete Bike</button></td>
+    </tr>
+</table>
+
+<button (click)="AddBike()" >Add Bike</button>
+<br><br>
+<button (click)="Save()">Save</button>
+
+<br><br><br><br><br>
+debug:
+<pre>
+    {{m_Model|json}}
+</pre>
